@@ -3,6 +3,7 @@ var fs = require('fs');
 var app = express();
 app.use(express.logger());
 
+//create buffer to read from file
 var buf = new Buffer(fs.readFileSync('index.html'));
 
 app.get('/', function(request, response) {
@@ -13,5 +14,3 @@ var port = process.env.PORT || 5000;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
-
-//console.log("the string is ", buf.toString('utf8',0));
